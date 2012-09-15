@@ -70,6 +70,7 @@ grails.gorm.default.mapping = {
 environments {
     development {
         grails.logging.jul.usebridge = true
+        grails.serverURL = "http://localhost:8080/school-enrollment"
     }
     production {
         grails.logging.jul.usebridge = false
@@ -147,3 +148,13 @@ private addConfigFileIfExists(String fileLocation) {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'school.enrollment.AppUser'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'school.enrollment.AppUserAppRole'
 grails.plugins.springsecurity.authority.className = 'school.enrollment.AppRole'
+
+grails.plugins.springsecurity.securityConfigType = "InterceptUrlMap"
+
+grails.plugins.springsecurity.interceptUrlMap = [
+        '/student/**':   ["hasAnyRole('ROLE_ADMIN')"],
+        '/*':            ["hasAnyRole('ROLE_ADMIN')"],
+        '/login/**':     ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/logout/**':    ['IS_AUTHENTICATED_ANONYMOUSLY'],
+
+]
