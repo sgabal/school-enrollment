@@ -16,9 +16,9 @@
 	</div>
 	
 	<div id="applicationHeader" class="applicationHeader">
-		%{--<div id="lifetouchLogo" class="lifetouchLogo">--}%
-			%{--<a href="${createLink(uri: '/')}"><r:img dir='images' file='school-icon.png' /></a>--}%
-		%{--</div>--}%
+		<div id="lifetouchLogo" class="lifetouchLogo">
+			<a href="${createLink(uri: '/')}"><r:img dir='images' file='school.png' /></a>
+		</div>
 		<div id="appName" class="appName">
 			<g:message code="app.header.name" />
 		</div>
