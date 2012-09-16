@@ -7,7 +7,7 @@
     <script type="text/javascript" src="app.js"></script>
 </head>
 <body class="school-enrollment-body">
-    <div style="height:690px;" id="school-enrollment-parent"> </div>
+    <div style="height:400px;" id="school-enrollment-parent"> </div>
 </body>
 
 </html>

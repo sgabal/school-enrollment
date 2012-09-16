@@ -15,6 +15,7 @@ Ext.application({
     appFolder: 'app',
     
     controllers : [
+        'Student'
     ],
  
     launch: function() {
@@ -26,12 +27,8 @@ Ext.application({
             flex: 3,
             renderTo: 'school-enrollment-parent',
             items: [
-//                {xtype: 'studentpanel'}
                 {
-                    xtype: 'textfield',
-                    name: 'flyerId',
-                    itemId: 'flyerid',
-                    fieldLabel: 'Flyer Part #'
+                    xtype: 'studentpanel'
                 }
             ]
         });

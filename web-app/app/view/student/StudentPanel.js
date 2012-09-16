@@ -7,36 +7,81 @@ Ext.define('SchoolEnrollment.view.student.StudentPanel', {
 //        'FOW.view.common.StatusBar'
     ],
 
-    border:true,
-    layout:'border',
-    preventHeader:true,
-    height:685,
+    title: 'Student',
+    bodyStyle: 'padding: 5px',
+    autoScroll: true,
+    defaults: {
+        margin: '5 0 5 0'
+    },
+    border:false,
 
     items:[
-//        {
-//            region:'north',
-//            xtype:'apoheader',
-//            border:false,
-//            collapsible:true,
-//            height:295,
-//            width:'100%'
-//        },
-//        {
-//            region:'center',
-//            xtype:'apotabs',
-//            border:false,
-//            width:'100%'
-//        },
-//        {
-//            region:'south',
-//            xtype:'fowstatusbar',
-//            border:false,
-//            width:'100%'
-//        }
+        {
+            xtype: 'fieldset',
+            title: '',
+            collapsible: false,
+            defaults: {
+                border: false,
+                margin: '5 0 5 0'
+            },
+            items: [
+                {
+                    xtype: 'fieldcontainer',
+                    layout: 'hbox',
+                    defaults: {
+                        margin: '0 5 0 0'
+                    },
+                    items: [
+                        {xtype: 'textfield',name: 'firstName',id: 'firstName',fieldLabel: 'First Name'},
+                        {xtype: 'textfield',name: 'middleName',id: 'middleName',fieldLabel: 'Middle Name'},
+                        {xtype: 'textfield',name: 'lastName',id: 'lastName',fieldLabel: 'Last Name'}
+                    ]
+                },
+                {xtype: 'textfield',name: 'email',id: 'email',fieldLabel: 'Email'},
+                {xtype: 'combobox', name: 'gender', id: 'gender', fieldLabel: 'Gender',
+                    editable : false, displayField : 'name',valueField : 'name',
+                    store: Ext.create('Ext.data.ArrayStore', {fields:['name'], data:[['Male'],['Female']]})}
+            ]
+        },
+        {
+            xtype: 'fieldset',
+            title: 'Address',
+            collapsible: true,
+            defaults: {
+                border: false,
+                margin: '5 0 5 0'
+            },
+            items: [
+                {xtype: 'textfield',name: 'street',id: 'street',fieldLabel: 'Street'},
+                {xtype: 'textfield',name: 'city',id: 'city',fieldLabel: 'City'},
+                {xtype: 'combobox',name: 'state',id: 'state',fieldLabel: 'State',
+                    editable : false, displayField : 'name',valueField : 'name',
+                    store: Ext.create('Ext.data.ArrayStore', {fields:['name'], data:[['MN'],['WI']]})},
+                {xtype: 'textfield',name: 'zipCode',id: 'zipCode',fieldLabel: 'Zip Code'}
+            ]
+        }
+    ],
+
+    buttons : [
+        {
+            text: 'Save',
+            id: 'studentsavebutton',
+            formBind: true
+        },
+        {
+            text: 'Cancel',
+            id: 'studentcancelbutton'
+        }
     ],
 
     initComponent:function () {
-        console.log('Creating Panel')
+        this.callParent(arguments);
+    },
+
+    constructor: function(config) {
+        Ext.applyIf(config, {
+            trackResetOnLoad:true
+        });
         this.callParent(arguments);
     }
 });
