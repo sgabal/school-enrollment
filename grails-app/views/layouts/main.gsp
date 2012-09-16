@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
     <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'schoolenrollment.css')}" type="text/css">
-    <link rel="stylesheet" href="${createLinkTo(dir:'js',file:'js/extjs-4.0.7/resources/css/ext-all.css')}">
+    <link rel="stylesheet" href="${createLinkTo(dir:'js',file:'extjs-4.0.7/resources/css/ext-all.css')}">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
     <g:layoutHead/>

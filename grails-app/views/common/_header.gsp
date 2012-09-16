@@ -5,13 +5,13 @@
 			<g:formatDate date="${new Date()}" />
 		</div>
 		<div id="userGreeting" class="userGreeting">
-			%{--<sec:ifLoggedIn>--}%
-				%{--<g:message code="app.header.user.label" args="${[sec.loggedInUserInfo(field: 'name')]}" />--}%
-				%{--&nbsp;|&nbsp;--}%
-				%{--<g:link controller="logout">--}%
-					%{--<g:message code="app.header.logout" />--}%
-				%{--</g:link>--}%
-			%{--</sec:ifLoggedIn>--}%
+			<sec:ifLoggedIn>
+                <sec:loggedInUserInfo field="username"/>
+				&nbsp;|&nbsp;
+				<g:link controller="logout">
+					<g:message code="app.header.logout" />
+				</g:link>
+			</sec:ifLoggedIn>
 		</div>
 	</div>
 	
