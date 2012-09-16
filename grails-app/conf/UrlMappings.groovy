@@ -8,6 +8,7 @@ class UrlMappings {
 		}
 
 		"/"(view:"/index")
+        '/student.gsp' (view: '/student')
 		"500"(view:'/error')
 	}
 }

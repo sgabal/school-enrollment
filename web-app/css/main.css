@@ -108,8 +108,8 @@ img {
 }
 
 .footer {
-	background: #abbf78;
-	color: #000;
+    background-color: #3193D0;
+    color: #ffffff;
 	clear: both;
 	font-size: 0.8em;
 	margin-top: 1.5em;
@@ -593,4 +593,66 @@ th:hover, tr:hover {
 a.skip {
 	position: absolute;
 	left: -9999px;
+}
+
+
+/* SCHOOL ENROLLMENT CUSTOM */
+.header {
+    width: 100%;
+}
+
+.header .userInfo {
+    width: 100%;
+    background-color: #0b213f;
+    color: #ffffff;
+    font-weight: normal;
+    font-size: 1em;
+    padding: 0em;
+}
+
+.header .userGreeting {
+    text-align: right;
+}
+
+.userInfo a:link, .userInfo a:visited, .userInfo a:hover {
+    color: #ffffff;
+}
+
+.header .userInfo div {
+    display: inline-block;
+    padding: 0.75em;
+    width: 48%;
+    zoom: 1;
+    *display: inline;
+}
+
+.applicationHeader {
+    background-color: #3193D0;
+    width: 100%;
+}
+
+.applicationHeader div {
+    display: inline-block;
+    width: 33%;
+    vertical-align: top;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    zoom: 1;
+    *display: inline;
+}
+
+.applicationHeader a {
+    margin: 1em;
+}
+
+.applicationHeader .lifetouchLogo {
+    width: 32%;
+    vertical-align: top;
+}
+
+.applicationHeader .appName {
+    font-weight: bold;
+    font-size: 2.0em;
+    text-align: center;
+    color: #ffffff;
 }

@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html>
 <head>
+    <meta name="layout" content="main"/>
     <title>School Enrollment</title>
 
     <link rel="stylesheet" type="text/css" href="js/extjs-4.0.7/resources/css/ext-all.css">
