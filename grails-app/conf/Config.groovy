@@ -132,11 +132,10 @@ grails.plugins.springsecurity.authority.className = 'school.enrollment.AppRole'
 grails.plugins.springsecurity.securityConfigType = "InterceptUrlMap"
 
 grails.plugins.springsecurity.interceptUrlMap = [
-        '/student/**':   ["hasAnyRole('ROLE_ADMIN')"],
-        '/*':            ["hasAnyRole('ROLE_ADMIN')"],
-        '/js/**':       ['IS_AUTHENTICATED_ANONYMOUSLY'],
-        '/css/**':      ['IS_AUTHENTICATED_ANONYMOUSLY'],
-        '/images/**':   ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/profile/**':   ["hasAnyRole('ROLE_ADMIN', 'ROLE_USER')"],
+        '/class/**':   ["hasAnyRole('ROLE_ADMIN', 'ROLE_USER')"],
+        '/admin/**':   ["hasAnyRole('ROLE_ADMIN')"],
+        '/*':            ["hasAnyRole('ROLE_ADMIN', 'ROLE_USER')"],
         '/login/**':     ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/logout/**':    ['IS_AUTHENTICATED_ANONYMOUSLY'],
 

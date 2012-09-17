@@ -84,7 +84,7 @@
     <a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
     <div class="title_header_medium">Home</div>
     <div class="box_container">
-        <sec:access controller="profile">
+        <sec:access url="profile">
             <g:link class="box" url="profile">
                 <r:img dir="images" file="student.png"/><br/>
                 Profile
@@ -96,7 +96,7 @@
                 Classes
             </g:link>
         </sec:access>
-        <sec:access controller="admin">
+        <sec:access url="admin">
             <g:link class="box" url="admin">
                 <r:img dir="images" file="admin.png"/><br/>
                 Admin
