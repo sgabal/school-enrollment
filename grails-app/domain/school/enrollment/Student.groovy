@@ -10,7 +10,7 @@ class Student {
     Date birthDate
     String gender
     Integer grade
-    String emailAddress
+    String email
 
     Date    dateCreated
     Date    lastUpdated
@@ -19,7 +19,7 @@ class Student {
 
     static constraints = {
         birthDate(nullable:true, blank:true)
-        emailAddress(nullable:true, blank:true)
+        email(nullable:true, blank:true)
         firstName(nullable:true, blank:true)
         gender(nullable:true, blank:true)
         grade(nullable:true, blank:true)

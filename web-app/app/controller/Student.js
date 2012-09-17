@@ -33,7 +33,6 @@ Ext.define('SchoolEnrollment.controller.Student', {
 
     initialize: function() {
         var student = Ext.create('SchoolEnrollment.model.Student');
-
         var studentForm = this.getStudentPanel().getForm();
         studentForm.loadRecord(student)
         studentForm.isValid()
@@ -48,6 +47,7 @@ Ext.define('SchoolEnrollment.controller.Student', {
         }
 
         var student = studentForm.getRecord()
+        studentForm.updateRecord(student)
 
         student.save ({
             scope: this,
@@ -57,7 +57,6 @@ Ext.define('SchoolEnrollment.controller.Student', {
 //                this.refresh();
             },
             failure: function(record, operation) {
-                console.log('failure')
 //                this.getStatusBar().setError('Publish resulted in errors: ' + operation.getAllErrors())
             }
         });
