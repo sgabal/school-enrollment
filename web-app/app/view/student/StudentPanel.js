@@ -1,7 +1,7 @@
 Ext.define('SchoolEnrollment.view.student.StudentPanel', {
-
-    extend:'Ext.panel.Panel',
+    extend:'Ext.form.Panel',
     alias:'widget.studentpanel',
+    id: 'studentpanel',
 
     requires:[
 //        'FOW.view.common.StatusBar'

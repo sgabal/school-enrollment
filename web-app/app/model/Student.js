@@ -8,7 +8,14 @@ Ext.define('SchoolEnrollment.model.Student', {
         {name: 'middleName', type:'string'},
         {name: 'birthDate', type:'string'},
         {name: 'gender', type:'string'},
-        {name: 'emailAddress', type:'string'}
+        {name: 'email', type:'string'}
+    ],
+
+    validations: [
+        {type: 'presence', field: 'firstName', message: 'First Name is required'},
+        {type: 'presence', field: 'lastName', message: 'Last Name is required'},
+        {type: 'presence', field: 'gender', message: 'Gender is required'},
+        {type: 'email', field: 'email', message: 'Email is invalid'}
     ],
 
     proxy: {

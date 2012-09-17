@@ -8,7 +8,17 @@ class UrlMappings {
 		}
 
 		"/"(view:"/index")
-        '/student.gsp' (view: '/student')
 		"500"(view:'/error')
+
+        '/profile' (view: '/profile')
+
+        "/student/$id?" (controller: 'student', parseRequest: true) {
+            action = [
+                    GET: 'get',
+                    PUT: 'save',
+                    POST: 'save',
+                    DELETE: 'delete'
+            ]
+        }
 	}
 }

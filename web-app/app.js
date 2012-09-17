@@ -1,13 +1,5 @@
 Ext.Loader.setPath('Ext.ux', 'js/extjs-4.0.7/src/ux');
 Ext.Loader.setConfig({ enabled: true });
-Ext.require([
-     'Ext.data.*',
-     'Ext.grid.*',
-     'Ext.ux.CheckColumn',
-     'Ext.ux.GroupingCheckbox',
-     'Ext.ux.form.MultiSelect',
-]);
-
 
 Ext.application({
     name: 'SchoolEnrollment',

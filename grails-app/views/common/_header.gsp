@@ -6,7 +6,8 @@
 		</div>
 		<div id="userGreeting" class="userGreeting">
 			<sec:ifLoggedIn>
-                <sec:loggedInUserInfo field="username"/>
+                %{--<sec:loggedInUserInfo field="username"/>--}%
+                <sec:username/>
 				&nbsp;|&nbsp;
 				<g:link controller="logout">
 					<g:message code="app.header.logout" />

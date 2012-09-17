@@ -124,6 +124,24 @@ log4j = {
             'net.sf.ehcache.hibernate'
 }
 
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'school.enrollment.AppUser'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'school.enrollment.AppUserAppRole'
+grails.plugins.springsecurity.authority.className = 'school.enrollment.AppRole'
+
+grails.plugins.springsecurity.securityConfigType = "InterceptUrlMap"
+
+grails.plugins.springsecurity.interceptUrlMap = [
+        '/student/**':   ["hasAnyRole('ROLE_ADMIN')"],
+        '/*':            ["hasAnyRole('ROLE_ADMIN')"],
+        '/js/**':       ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/css/**':      ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/images/**':   ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/login/**':     ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/logout/**':    ['IS_AUTHENTICATED_ANONYMOUSLY'],
+
+]
+
 // This is where your app will look for externalized configuration.
 // Change if you have additional configuration files you want to use.
 
@@ -143,18 +161,3 @@ private addConfigFileIfExists(String fileLocation) {
         println("[${appName}] warning: file ${file.canonicalPath} not found, using default settings.  To override those settings, place a file at that location.")
     }
 }
-
-// Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'school.enrollment.AppUser'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'school.enrollment.AppUserAppRole'
-grails.plugins.springsecurity.authority.className = 'school.enrollment.AppRole'
-
-grails.plugins.springsecurity.securityConfigType = "InterceptUrlMap"
-
-grails.plugins.springsecurity.interceptUrlMap = [
-        '/student/**':   ["hasAnyRole('ROLE_ADMIN')"],
-        '/*':            ["hasAnyRole('ROLE_ADMIN')"],
-        '/login/**':     ['IS_AUTHENTICATED_ANONYMOUSLY'],
-        '/logout/**':    ['IS_AUTHENTICATED_ANONYMOUSLY'],
-
-]

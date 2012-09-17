@@ -656,3 +656,45 @@ a.skip {
     text-align: center;
     color: #ffffff;
 }
+
+a.box {
+
+    background-color: #D8D8D8;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 0 5px #efefef;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: bold;
+    margin: 15px 20px 15px 0;
+    padding:  20px 10px 20px;
+    height: 100px;
+    width: 140px;
+    text-align: center;
+    text-decoration: none;
+
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    vertical-align: top;
+}
+
+a.box.hover {
+    box-shadow: 0 0 10px #333333;
+}
+
+img.icon {
+    margin: 0 0 5px;
+}
+
+.box_container {
+    margin: 0 auto 30px;
+    width: 740px;
+    text-align: center;
+}
+
+.title_header_medium {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
