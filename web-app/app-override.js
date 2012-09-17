@@ -3,7 +3,8 @@ Ext.Loader.setConfig({ enabled: true });
 
 Ext.require([
     'Ext.data.*',
-    'Ext.grid.*'
+    'Ext.grid.*',
+    'Ext.ux.statusbar.StatusBar'
 ]);
 
 
@@ -174,6 +175,21 @@ Ext.onReady(function() {
 	         this.callParent(arguments);
 	    }
 	});
+
+    // this override sets normal status messages to blue
+    Ext.override(Ext.ux.statusbar.StatusBar, {
+        setText : function(text){
+            text = '<span style="color:blue;">' + text + '</span>';
+            this.callOverridden(arguments);
+        }
+    });
+
+    // this override sets error messages to red
+    Ext.ux.statusbar.StatusBar.implement({
+        setError : function(text) {
+            this.setText('<span style="color:red;">' + text + '</span>');
+        }
+    });
 
     Ext.override(Ext.form.field.Base, {
         setModelFieldValidation: function(validation) {

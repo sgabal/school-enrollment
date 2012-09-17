@@ -2,7 +2,8 @@ Ext.define('SchoolEnrollment.controller.Student', {
     extend: 'Ext.app.Controller',
 
     refs: [
-        { ref: 'studentPanel', selector: '#studentpanel'}
+        { ref: 'studentPanel', selector: '#studentpanel'},
+        { ref: 'statusBar', selector: '#statusbar'}
 
     ],
 
@@ -53,7 +54,7 @@ Ext.define('SchoolEnrollment.controller.Student', {
             scope: this,
             success: function(student) {
                 console.log('success')
-//                this.getStatusBar().setText('Publish was successful')
+                this.getStatusBar().setText('Save was successful')
 //                this.refresh();
             },
             failure: function(record, operation) {

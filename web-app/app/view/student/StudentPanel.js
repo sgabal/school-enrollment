@@ -3,10 +3,6 @@ Ext.define('SchoolEnrollment.view.student.StudentPanel', {
     alias:'widget.studentpanel',
     id: 'studentpanel',
 
-    requires:[
-//        'FOW.view.common.StatusBar'
-    ],
-
     title: 'Student',
     bodyStyle: 'padding: 5px',
     autoScroll: true,
@@ -59,7 +55,14 @@ Ext.define('SchoolEnrollment.view.student.StudentPanel', {
                     store: Ext.create('Ext.data.ArrayStore', {fields:['name'], data:[['MN'],['WI']]})},
                 {xtype: 'textfield',name: 'zipCode',id: 'zipCode',fieldLabel: 'Zip Code'}
             ]
+        },
+        {
+            xtype: 'statusbar',
+            id: 'statusbar',
+            dock: 'bottom',
+            defaultText: 'Ready'
         }
+
     ],
 
     buttons : [

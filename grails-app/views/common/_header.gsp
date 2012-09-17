@@ -5,8 +5,7 @@
 			<g:formatDate date="${new Date()}" />
 		</div>
 		<div id="userGreeting" class="userGreeting">
-			<sec:ifLoggedIn>
-                %{--<sec:loggedInUserInfo field="username"/>--}%
+            <sec:ifLoggedIn>
                 <sec:username/>
                 &nbsp;|&nbsp;
                 <g:link url="home">
