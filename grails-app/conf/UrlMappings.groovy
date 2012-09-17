@@ -10,6 +10,7 @@ class UrlMappings {
 		"/"(view:"/index")
 		"500"(view:'/error')
 
+        '/home' (view: '/index')
         '/profile' (view: '/profile')
 
         "/student/$id?" (controller: 'student', parseRequest: true) {

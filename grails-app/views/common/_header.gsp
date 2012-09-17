@@ -8,6 +8,10 @@
 			<sec:ifLoggedIn>
                 %{--<sec:loggedInUserInfo field="username"/>--}%
                 <sec:username/>
+                &nbsp;|&nbsp;
+                <g:link url="home">
+                    <g:message code="app.header.home" />
+                </g:link>
 				&nbsp;|&nbsp;
 				<g:link controller="logout">
 					<g:message code="app.header.logout" />
