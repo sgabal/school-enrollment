@@ -1,4 +1,4 @@
-Ext.define('SchoolEnrollment.view.student.StudentPanel', {
+Ext.define('Profile.view.student.StudentPanel', {
     extend:'Ext.form.Panel',
     alias:'widget.studentpanel',
     id: 'studentpanel',

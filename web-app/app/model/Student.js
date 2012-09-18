@@ -1,4 +1,4 @@
-Ext.define('SchoolEnrollment.model.Student', {
+Ext.define('Profile.model.Student', {
     extend: 'Ext.data.Model',
 
     fields: [
@@ -20,13 +20,10 @@ Ext.define('SchoolEnrollment.model.Student', {
 
     proxy: {
         type: 'rest',
-        url: '/school-enrollment/student',
+        url: '/school-enrollment/students',
         reader: {
             type: 'json',
-            root: 'data'
-        },
-        extraParams: {
-            search: ''
+            root: 'students'
         }
     }
 

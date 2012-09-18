@@ -6,7 +6,7 @@
 		</div>
 		<div id="userGreeting" class="userGreeting">
             <sec:ifLoggedIn>
-                <sec:username/>
+                User:&nbsp;<sec:username/>
                 &nbsp;|&nbsp;
                 <g:link url="home">
                     <g:message code="app.header.home" />

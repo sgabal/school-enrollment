@@ -1,28 +1,36 @@
 package school.enrollment
 
 import grails.converters.JSON
+import org.codehaus.groovy.grails.commons.metaclass.GroovyDynamicMethodsInterceptor
 import org.codehaus.groovy.grails.web.json.JSONObject
+
+import static school.enrollment.ContextHolder.getUserId
 
 class StudentController {
 
     def get() {
-        render([success:true] as JSON)
+        def student = Student.findByUserName(userId)
+        if (student) {
+            def results = persistentProperties(domain:student)
+            render( [success:true, students: results] as JSON )
+        } else {
+            render( [success:false, students: []] as JSON )
+        }
     }
 
     def save() {
-        log.debug params.id.class
-
         def student
         if (params.id != JSONObject.NULL) {
-            log.debug 'query'
             student = Student.get(params.id)
+            student.properties = params
         } else {
-            log.debug 'create'
             student = new Student(params)
+            student.userName = userId
         }
 
-        student.save(flush: true)
-        render([success:true, data: student.properties] as JSON)
+        student = student.save(flush: true)
+        def results = persistentProperties(domain:student)
+        render( [success:true, students: results] as JSON )
     }
 
     def delete() {
@@ -31,5 +39,10 @@ class StudentController {
 
     def beforeInterceptor = {
         log.debug "action[${actionUri}]::${params}"
+    }
+
+    StudentController() {
+        GroovyDynamicMethodsInterceptor interceptor = new GroovyDynamicMethodsInterceptor(this)
+        interceptor.addDynamicMethodInvocation(new PersistentPropertiesMethod())
     }
 }

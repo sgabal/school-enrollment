@@ -11,6 +11,7 @@ class Student {
     String gender
     Integer grade
     String email
+    String userName
 
     Date    dateCreated
     Date    lastUpdated
@@ -25,6 +26,7 @@ class Student {
         grade(nullable:true, blank:true)
         lastName(nullable:false, blank:false)
         middleName(nullable:true, blank:true)
+        userName(nullable: true)
 
         createdBy(nullable: true)
         updatedBy(nullable: true)

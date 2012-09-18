@@ -13,7 +13,7 @@ class UrlMappings {
         '/home' (view: '/index')
         '/profile' (view: '/profile')
 
-        "/student/$id?" (controller: 'student', parseRequest: true) {
+        "/students/$id?" (controller: 'student', parseRequest: true) {
             action = [
                     GET: 'get',
                     PUT: 'save',

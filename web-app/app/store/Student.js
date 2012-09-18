@@ -1,6 +1,6 @@
-Ext.define('SchoolEnrollment.store.Student', {
+Ext.define('Profile.store.Student', {
     extend: 'Ext.data.Store',
     autoLoad: false,
-    model: 'SchoolEnrollment.model.Student',
+    model: 'Profile.model.Student',
     pageSize: 5
 });
