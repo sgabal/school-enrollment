@@ -20,7 +20,7 @@ Ext.application({
         Ext.create('Ext.panel.Panel', {
             id: 'school-enrollment-panel',
             layout: 'fit',
-            flex: 3,
+            flex: 4,
             renderTo: 'school-enrollment-parent',
             items: [
                 {

@@ -55,12 +55,6 @@ Ext.define('SchoolEnrollment.view.student.StudentPanel', {
                     store: Ext.create('Ext.data.ArrayStore', {fields:['name'], data:[['MN'],['WI']]})},
                 {xtype: 'textfield',name: 'zipCode',id: 'zipCode',fieldLabel: 'Zip Code'}
             ]
-        },
-        {
-            xtype: 'statusbar',
-            id: 'statusbar',
-            dock: 'bottom',
-            defaultText: 'Ready'
         }
 
     ],
@@ -74,6 +68,17 @@ Ext.define('SchoolEnrollment.view.student.StudentPanel', {
         {
             text: 'Cancel',
             id: 'studentcancelbutton'
+        }
+    ],
+
+    dockedItems: [
+        {
+            xtype: 'statusbar',
+            id: 'statusbar',
+            dock: 'bottom',
+            defaultText: 'Ready',
+            border: true,
+            width: '100%'
         }
     ],
 

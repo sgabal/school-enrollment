@@ -8,7 +8,7 @@
     <script type="text/javascript" src="app-override.js"></script>
 </head>
 <body class="school-enrollment-body">
-    <div style="height:400px;" id="school-enrollment-parent"> </div>
+    <div style="height:310px;" id="school-enrollment-parent"> </div>
 </body>
 
 </html>

@@ -29,7 +29,7 @@
 				margin-bottom: 0.6em;
 				padding: 0;
 			}
-            
+
 			#status li {
 				line-height: 1.3;
 			}
@@ -94,6 +94,12 @@
             <g:link class="box" url="class">
                 <r:img dir="images" file="class.png"/><br/>
                 Classes
+            </g:link>
+        </sec:access>
+        <sec:access url="calendar">
+            <g:link class="box" url="calendar">
+                <r:img dir="images" file="calendar.png"/><br/>
+                Calendar
             </g:link>
         </sec:access>
         <sec:access url="admin">
