@@ -134,6 +134,7 @@ grails.plugins.springsecurity.securityConfigType = "InterceptUrlMap"
 grails.plugins.springsecurity.interceptUrlMap = [
         '/profile/**':   ["hasAnyRole('ROLE_ADMIN', 'ROLE_USER')"],
         '/class/**':   ["hasAnyRole('ROLE_ADMIN', 'ROLE_USER')"],
+        '/calendar/**':   ["hasAnyRole('ROLE_ADMIN', 'ROLE_USER')"],
         '/admin/**':   ["hasAnyRole('ROLE_ADMIN')"],
         '/*':            ["hasAnyRole('ROLE_ADMIN', 'ROLE_USER')"],
         '/login/**':     ['IS_AUTHENTICATED_ANONYMOUSLY'],
