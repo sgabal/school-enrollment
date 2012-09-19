@@ -4,6 +4,7 @@ class Course {
 
     String term
     String department
+    String subject
     String number
     String name
     String startTime
@@ -20,7 +21,8 @@ class Course {
     static constraints = {
         term(nullable:true)
         department(nullable:true)
-        number(nullable:true)
+        subject(nullable:true)
+        number(nullable:true, unique:true)
         name(nullable:true)
         startTime(nullable:true)
         endTime(nullable:true)
@@ -30,7 +32,7 @@ class Course {
         location(nullable:true)
         instructor(nullable:true)
         status(nullable:true)
-        size(nullable:true)
+        size(nullable:true, validator: { size, course -> size <= course.maxSize })
         maxSize(nullable:true)
     }
 }

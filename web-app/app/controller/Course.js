@@ -73,7 +73,45 @@ Ext.define('Course.controller.Course', {
         this.getStatusBar().clearStatus();
     },
 
-    showMenu: function() {
+    showMenu: function(grid, course, item, index, event, eOpts) {
+
+        var me = this;
+        event.stopEvent(); // stop browser menu
+
+        if (! grid.getSelectionModel().isSelected(course)) {
+            grid.getSelectionModel().select(course, false, true);
+        }
+
+        var menu = Ext.create('Ext.menu.Menu', {
+            items: [
+                {
+                    text: 'Enroll',
+                    handler: function(menuitem) { me.enroll(course) }
+                },
+                {
+                    text: 'View Details',
+                    handler: function(menuitem) {
+                    }
+                }
+            ]
+        }, this);
+        menu.showAt(event.xy);
+    },
+
+    enroll: function(course) {
+//        publishable.set('dryRun', dryRun);
+//        publishable.set('includeEvents', false);
+//
+//        publishable.save({
+//            scope: this,
+//            success: function(publishable) {
+//                this.getStatusBar().setText('Publish was successful')
+//                this.refresh();
+//            },
+//            failure: function(record, operation) {
+//                this.getStatusBar().setError('Publish resulted in errors: ' + operation.getAllErrors())
+//            }
+//        });
 
     }
 

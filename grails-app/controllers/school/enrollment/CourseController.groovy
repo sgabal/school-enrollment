@@ -11,11 +11,12 @@ class CourseController {
             def results = persistentProperties(domain:course)
             render( [success:true, courses: results] as JSON )
         } else {
-            def courses = Course.list([offset:params.start, max:params.limit])
+            def courses = Course.findAllByTermAndSubject(params.term, params.subject, [offset:params.start, max:params.limit])
+            def total = Course.countByTermAndSubject(params.term, params.subject)
             def results = courses.each { course ->
                 persistentProperties(domain:course)
             }
-            render( [success: true, courses: results, total: courses.size()] as JSON )
+            render( [success: true, courses: results, total: total] as JSON )
         }
     }
 

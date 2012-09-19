@@ -1,14 +1,9 @@
-Ext.define('Profile.model.Student', {
+Ext.define('Profile.model.Enrollment', {
     extend: 'Ext.data.Model',
 
     fields: [
         {name: 'id', type: 'int', useNull:true},
-        {name: 'firstName', type:'string'},
-        {name: 'lastName', type:'string'},
-        {name: 'middleName', type:'string'},
-        {name: 'birthDate', type:'string'},
-        {name: 'gender', type:'string'},
-        {name: 'email', type:'string'},
+        {name: 'number', type:'string'},
         {name: 'userName', type:'string'}
     ],
 
