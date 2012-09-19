@@ -91,9 +91,9 @@
             </g:link>
         </sec:access>
         <sec:access url="class">
-            <g:link class="box" url="class">
-                <r:img dir="images" file="class.png"/><br/>
-                Classes
+            <g:link class="box" url="course">
+                <r:img dir="images" file="course.png"/><br/>
+                Courses
             </g:link>
         </sec:access>
         <sec:access url="calendar">

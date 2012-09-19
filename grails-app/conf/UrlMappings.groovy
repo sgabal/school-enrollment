@@ -12,6 +12,7 @@ class UrlMappings {
 
         '/home' (view: '/index')
         '/profile' (view: '/profile')
+        '/course' (view: '/course')
 
         "/students/$id?" (controller: 'student', parseRequest: true) {
             action = [
