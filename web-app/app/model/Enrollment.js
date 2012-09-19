@@ -1,4 +1,4 @@
-Ext.define('Profile.model.Enrollment', {
+Ext.define('Course.model.Enrollment', {
     extend: 'Ext.data.Model',
 
     fields: [
@@ -8,18 +8,14 @@ Ext.define('Profile.model.Enrollment', {
     ],
 
     validations: [
-        {type: 'presence', field: 'firstName', message: 'First Name is required'},
-        {type: 'presence', field: 'lastName', message: 'Last Name is required'},
-        {type: 'presence', field: 'gender', message: 'Gender is required'},
-        {type: 'email', field: 'email', message: 'Email is invalid'}
     ],
 
     proxy: {
         type: 'rest',
-        url: '/school-enrollment/students',
+        url: '/school-enrollment/enrollments',
         reader: {
             type: 'json',
-            root: 'students'
+            root: 'enrollments'
         }
     }
 

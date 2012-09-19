@@ -40,6 +40,8 @@ Ext.define('Profile.controller.Student', {
                 studentForm.loadRecord(student)
                 studentForm.isValid()
 
+                Ext.util.Cookies.set('userName', student.get('userName'));
+
             },
             failure: function(record, operation) {
                 var studentForm = this.getStudentPanel().getForm();

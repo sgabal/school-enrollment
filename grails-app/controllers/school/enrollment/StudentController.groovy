@@ -34,7 +34,7 @@ class StudentController {
     }
 
     def delete() {
-        render 'delete'
+        render( [success:true] as JSON )
     }
 
     def beforeInterceptor = {

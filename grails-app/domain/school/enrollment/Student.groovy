@@ -18,6 +18,8 @@ class Student {
     String  createdBy
     String  updatedBy
 
+    static hasMany = [courses:Course]
+
     static constraints = {
         birthDate(nullable:true, blank:true)
         email(nullable:true, blank:true)
@@ -27,6 +29,7 @@ class Student {
         lastName(nullable:false, blank:false)
         middleName(nullable:true, blank:true)
         userName(nullable: true)
+        courses(nullable: true)
 
         createdBy(nullable: true)
         updatedBy(nullable: true)

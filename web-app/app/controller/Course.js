@@ -5,7 +5,7 @@ Ext.define('Course.controller.Course', {
         {ref: 'coursePanel', selector: '#coursepanel'},
         {ref: 'termComboBox', selector: '#termcombbox'},
         {ref: 'subjectComboBox', selector: '#subjectcombobox'},
-        { ref: 'statusBar', selector: '#statusbar'}
+        {ref: 'statusBar', selector: '#statusbar'}
     ],
 
     views: [
@@ -14,7 +14,8 @@ Ext.define('Course.controller.Course', {
     ],
 
     models: [
-        'Course'
+        'Course',
+        'Enrollment'
     ],
 
     stores: [
@@ -99,17 +100,23 @@ Ext.define('Course.controller.Course', {
     },
 
     enroll: function(course) {
-//        publishable.set('dryRun', dryRun);
-//        publishable.set('includeEvents', false);
-//
-//        publishable.save({
+        var userName = Ext.util.Cookies.get('userName');
+        if (!userName) {
+            this.getStatusBar().setError('You must setup a student profile before enrolling.')
+            return
+        }
+
+        var enrollment = Ext.create('Course.model.Enrollment');
+        enrollment.set('number', course.get('number'));
+        enrollment.set('userName', userName);
+
+//        enrollment.save({
 //            scope: this,
-//            success: function(publishable) {
-//                this.getStatusBar().setText('Publish was successful')
-//                this.refresh();
+//            success: function(enrollment) {
+//                this.getStatusBar().setText('Enrollment was successful')
 //            },
 //            failure: function(record, operation) {
-//                this.getStatusBar().setError('Publish resulted in errors: ' + operation.getAllErrors())
+//                this.getStatusBar().setError('Enrollment resulted in errors: ' + operation.getAllErrors())
 //            }
 //        });
 
