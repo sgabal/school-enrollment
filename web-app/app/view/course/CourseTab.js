@@ -10,11 +10,8 @@ Ext.define('Course.view.course.CourseTab', {
         {
             xtype: 'courseform'
         },
-//        {
-//            xtype: 'grid'
-//        },
-//        {
-//            xtype: 'grid'
-//        }
+        {
+            xtype: 'coursegrid'
+        }
     ]
 });

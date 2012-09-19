@@ -5,13 +5,16 @@ Ext.define('Course.controller.Course', {
     ],
 
     views: [
-        'course.CourseForm'
+        'course.CourseForm',
+        'course.CourseGrid'
     ],
 
     models: [
+        'Course'
     ],
 
     stores: [
+        'Course'
     ],
 
     init: function() {
