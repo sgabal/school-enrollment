@@ -32,6 +32,9 @@ Ext.define('Course.controller.Course', {
             },
             'coursepanel button[text="Clear"]': {
                 click: this.clear
+            },
+            'coursegrid': {
+                itemcontextmenu: this.showMenu
             }
         });
 
@@ -68,6 +71,10 @@ Ext.define('Course.controller.Course', {
         this.getCoursePanel().getForm().reset();
         this.getCourseStore().removeAll();
         this.getStatusBar().clearStatus();
+    },
+
+    showMenu: function() {
+
     }
 
 });
