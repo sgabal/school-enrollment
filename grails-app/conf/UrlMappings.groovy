@@ -22,5 +22,14 @@ class UrlMappings {
                     DELETE: 'delete'
             ]
         }
+
+        "/courses/$id?" (controller: 'course', parseRequest: true) {
+            action = [
+                    GET: 'get',
+                    PUT: 'save',
+                    POST: 'save',
+                    DELETE: 'delete'
+            ]
+        }
 	}
 }

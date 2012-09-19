@@ -1,7 +1,7 @@
-Ext.define('Course.view.course.CourseForm', {
+Ext.define('Course.view.course.CoursePanel', {
     extend: 'Ext.form.Panel',
-    id: 'courseform',
-    alias: 'widget.courseform',
+    id: 'coursepanel',
+    alias: 'widget.coursepanel',
 
     autoScroll: true,
     items: [
@@ -14,8 +14,9 @@ Ext.define('Course.view.course.CourseForm', {
         items: [
             {
                 xtype: 'combobox',
-                id: 'term',
+                id: 'termcombbox',
                 editable: false,
+                allowBlank: false,
                 fieldLabel: 'Term',
                 labelWidth: 60,
                 displayField : 'name',
@@ -25,14 +26,15 @@ Ext.define('Course.view.course.CourseForm', {
             },
             {
                 xtype: 'combobox',
-                id: 'subject',
+                id: 'subjectcombobox',
                 editable: false,
+                allowBlank: false,
                 fieldLabel: 'Subject',
                 labelWidth: 60,
                 displayField : 'name',
                 valueField : 'name',
                 flex: 1,
-                store: Ext.create('Ext.data.ArrayStore', { fields:['name'], data:[ ['Mathematics'], ['Apparel Design'] ] })
+                store: Ext.create('Ext.data.ArrayStore', { fields:['name'], data:[ ['Mathematics'], ['Computer Engineering'] ] })
             },
             {
                 flex: 2,
@@ -40,6 +42,27 @@ Ext.define('Course.view.course.CourseForm', {
             }
         ]
     }
+    ],
+
+    tbar: [
+        {
+            xtype:'tbtext',
+            text:'Search Courses',
+            baseCls: 'x-panel-header-text'
+        },
+        { xtype:'tbfill'},
+        '-',
+        {
+            xtype: 'button',
+            text:'Search',
+            itemId:'searchButton'
+        },
+        '-',
+        {
+            xtype: 'button',
+            text:'Clear',
+            itemId:'clearButton'
+        }
     ]
 
 });

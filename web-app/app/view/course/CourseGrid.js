@@ -4,18 +4,18 @@ Ext.define('Course.view.course.CourseGrid', {
     id: 'coursegrid',
 
     title: 'Courses',
-//    store : 'Course',
+    store : 'Course',
 
     columnLines: true,
-    height: 315,
+    height: 290,
     autoScroll: true,
 
     columns: [
         {
             xtype: 'gridcolumn',
-            text: 'Department',
+            text: 'Dept',
             dataIndex: 'department',
-            flex    : 0.5
+            flex    : 1
         },
         {
             xtype: 'gridcolumn',
@@ -27,13 +27,13 @@ Ext.define('Course.view.course.CourseGrid', {
             xtype: 'gridcolumn',
             text: 'Name',
             dataIndex: 'name',
-            flex    : 1.5
+            flex    : 1
         },
         {
             xtype: 'gridcolumn',
             text: 'Start Time',
             dataIndex: 'startTime',
-            flex    : 0.5
+            flex    : 1
         },
         {
             xtype: 'gridcolumn',
@@ -43,47 +43,59 @@ Ext.define('Course.view.course.CourseGrid', {
         },
         {
             xtype: 'gridcolumn',
-            text: 'Start Date',
-            dataIndex: 'startDate',
+            text: 'Days',
+            dataIndex: 'days',
+            flex : 0.75
+        },
+        {
+            xtype: 'gridcolumn',
+            text: 'Credits',
+            dataIndex: 'credits',
             flex : 0.5
         },
         {
             xtype: 'gridcolumn',
-            text: 'End Date',
-            dataIndex: 'endDate',
-            flex : 0.5
-        },
-        {
-            xtype: 'gridcolumn',
-            text: 'Prerequisites',
+            text: 'Prereq',
             dataIndex: 'prerequisite',
-            flex : 0.5
+            flex : 1
         },
         {
             xtype: 'gridcolumn',
             text: 'Location',
             dataIndex: 'location',
-            flex : 0.5
+            flex : 1
         },
         {
             xtype: 'gridcolumn',
             text: 'Instructor',
             dataIndex: 'instructor',
-            flex : 0.5
+            flex : 1
         },
         {
             xtype: 'gridcolumn',
             text: 'Status',
             dataIndex: 'status',
+            flex : 1
+        },
+        {
+            xtype: 'gridcolumn',
+            text: 'Size',
+            dataIndex: 'size',
             flex : 0.5
         },
+        {
+            xtype: 'gridcolumn',
+            text: 'Max',
+            dataIndex: 'maxSize',
+            flex : 0.5
+        }
     ],
 
     dockedItems: [
         {
             xtype: 'pagingtoolbar',
             id: 'pagingtoolbar',
-//            store: 'Course',
+            store: 'Course',
             autoDestroy : true,
             dock: 'bottom',
             displayInfo: true

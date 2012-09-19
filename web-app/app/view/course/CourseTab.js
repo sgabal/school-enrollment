@@ -8,7 +8,7 @@ Ext.define('Course.view.course.CourseTab', {
 
     items: [
         {
-            xtype: 'courseform'
+            xtype: 'coursepanel'
         },
         {
             xtype: 'coursegrid'

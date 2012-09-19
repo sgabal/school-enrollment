@@ -8,12 +8,14 @@ Ext.define('Course.model.Course', {
         {name: 'name', type:'string'},
         {name: 'startTime', type:'string'},
         {name: 'endTime', type:'string'},
-        {name: 'startDate', type:'string'},
-        {name: 'endDate', type:'string'},
+        {name: 'days', type:'string'},
+        {name: 'credits', type:'int'},
         {name: 'prerequisite', type:'string'},
         {name: 'location', type:'string'},
         {name: 'instructor', type:'string'},
         {name: 'status', type:'string'},
+        {name: 'size', type:'int'},
+        {name: 'maxSize', type:'int'},
     ],
 
     validations: [
