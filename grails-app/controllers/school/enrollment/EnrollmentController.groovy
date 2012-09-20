@@ -8,6 +8,7 @@ import static school.enrollment.ContextHolder.*
 class EnrollmentController {
 
     def get() {
+        log.debug "action[get]::${params}"
         render( [success:true, enrollments:[]] as JSON )
     }
 

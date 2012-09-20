@@ -5,7 +5,8 @@ Ext.define('Course.controller.Course', {
         {ref: 'coursePanel', selector: '#coursepanel'},
         {ref: 'termComboBox', selector: '#termcombbox'},
         {ref: 'subjectComboBox', selector: '#subjectcombobox'},
-        {ref: 'statusBar', selector: '#statusbar'}
+        {ref: 'statusBar', selector: '#statusbar'},
+        {ref: 'myCourseTab', selector: '#mycoursetab'}
     ],
 
     views: [
@@ -114,6 +115,8 @@ Ext.define('Course.controller.Course', {
             scope: this,
             success: function(enrollment) {
                 this.getStatusBar().setText('Enrollment was successful')
+                this.application.fireEvent('course.enrolled');
+                this.getMyCourseTab().show();
             },
             failure: function(record, operation) {
                 this.getStatusBar().setError('Enrollment resulted in errors: ' + operation.getAllErrors())

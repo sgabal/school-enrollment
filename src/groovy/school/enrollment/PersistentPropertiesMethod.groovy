@@ -46,7 +46,7 @@ class PersistentPropertiesMethod implements DynamicMethodInvocation {
 		return response
 	}
 	
-	def allPersistentProperties(arguments) {
+	def persistentPropertiesDeep(arguments) {
 		def object = arguments.domain
 		def excludes = arguments.excludes
 		def includeSingleEnded = arguments.includeSingleEnded
@@ -65,10 +65,10 @@ class PersistentPropertiesMethod implements DynamicMethodInvocation {
 				response."${it.name}" = object."${it.name}"
 			} else if (it.isOneToMany()) {
 				response."${it.name}" = object."${it.name}".collect {
-					bindProperties(domain:it, excludes:excludes)
+                    persistentPropertiesDeep(domain:it, excludes:excludes)
 				}
 			} else if (includeSingleEnded && (it.isOneToOne() || it.isManyToOne()) && object."${it.name}" != null) {
-				response."${it.name}" = bindProperties(domain:object."${it.name}", excludes:excludes)
+				response."${it.name}" = persistentPropertiesDeep(domain:object."${it.name}", excludes:excludes)
 			}
 		}
 		
@@ -92,7 +92,7 @@ class PersistentPropertiesMethod implements DynamicMethodInvocation {
 	}
 
 	boolean isMethodMatch(String methodName) {
-		return methodName == 'persistentProperties' || methodName == 'allPersistentProperties' || methodName == 'logProperties';
+		return methodName == 'persistentProperties' || methodName == 'persistentPropertiesDeep' || methodName == 'logProperties';
 	}
 
 	Object invoke(Object target, String methodName, Object[] arguments) {

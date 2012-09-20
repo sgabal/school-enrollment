@@ -32,6 +32,15 @@ class UrlMappings {
             ]
         }
 
+        "/mycourses/$id?" (controller: 'myCourse', parseRequest: true) {
+            action = [
+                    GET: 'get',
+                    PUT: 'save',
+                    POST: 'save',
+                    DELETE: 'delete'
+            ]
+        }
+
         "/enrollments/$id?" (controller: 'enrollment', parseRequest: true) {
             action = [
                     GET: 'get',
@@ -41,13 +50,6 @@ class UrlMappings {
             ]
         }
 
-        "/mycourses/$id?" (controller: 'mycourse', parseRequest: true) {
-            action = [
-                    GET: 'get',
-                    PUT: 'save',
-                    POST: 'save',
-                    DELETE: 'delete'
-            ]
-        }
+
 	}
 }

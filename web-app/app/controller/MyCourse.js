@@ -25,9 +25,17 @@ Ext.define('Course.controller.MyCourse', {
             }
         });
 
+        this.application.on({
+            'course.enrolled': this.loadMyCourses, scope: this
+        });
+
     },
 
     initialize: function() {
+        this.loadMyCourses();
+    },
+
+    loadMyCourses: function() {
         this.getMyCourseStore().load({
             scope: this,
             params :{

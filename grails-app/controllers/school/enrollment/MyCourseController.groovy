@@ -7,17 +7,16 @@ import static school.enrollment.ContextHolder.*
 class MyCourseController {
 
     def get() {
-        def courses = Course.createCriteria().list(offset:params.start, max:params.limit) {
-            and {
-                students {
-                    eq('userName', userId)
-                }
+        def student = Student.findByUserName(userId)
+        def results = []
+
+        if (student) {
+            results = student.enrolled.each { course ->
+                persistentProperties(domain:course)
             }
         }
-        def results = courses.collect { course ->
-            persistentProperties(domain:course)
-        }
-        render( [success: true, courses: results, total: Student.enrolled.size()] as JSON )
+
+        render( [success: true, mycourses: results, total: results.size()] as JSON )
     }
 
     def save() {
