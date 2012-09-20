@@ -2,6 +2,7 @@ Ext.define('Course.controller.MyCourse', {
     extend: 'Ext.app.Controller',
 
     refs: [
+        {ref: 'statusBar', selector: '#statusbar'}
     ],
 
     views: [

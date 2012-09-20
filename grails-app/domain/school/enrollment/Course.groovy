@@ -53,6 +53,10 @@ class Course {
         lastUpdated(nullable: true)
     }
 
+    static mapping = {
+        students joinTable: [name: "enrolled_courses", key: 'course_id']
+    }
+
     def beforeInsert = {
         createdBy = userId
         updatedBy = createdBy

@@ -32,7 +32,7 @@ class BootStrap {
         def algebra2 = new Course(
                 term: 'Fall 2012', department: 'MATH', identifier: '5002', name: 'Algebra II',
                 startTime: '09:00 A.M', endTime: '10:00 A.M',  days: 'M,W', credits: 4,
-                prerequisite: 'NONE', location: 'TCEASTBANK ', instructor: 'Roberts, Bob',
+                prerequisite: 'MATH 5001', location: 'TCEASTBANK ', instructor: 'Roberts, Bob',
                 status: 'OPEN', seats: 15, maxSize: 15, subject:'Mathematics'
         ).save(flush: true)
 
