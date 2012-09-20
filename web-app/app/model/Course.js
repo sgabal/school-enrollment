@@ -4,7 +4,7 @@ Ext.define('Course.model.Course', {
     fields: [
         {name: 'id', type: 'int', useNull:true},
         {name: 'department', type:'string'},
-        {name: 'number', type:'string'},
+        {name: 'identifier', type:'string'},
         {name: 'name', type:'string'},
         {name: 'startTime', type:'string'},
         {name: 'endTime', type:'string'},
@@ -14,7 +14,7 @@ Ext.define('Course.model.Course', {
         {name: 'location', type:'string'},
         {name: 'instructor', type:'string'},
         {name: 'status', type:'string'},
-        {name: 'size', type:'int'},
+        {name: 'seats', type:'int'},
         {name: 'maxSize', type:'int'},
     ],
 

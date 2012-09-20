@@ -8,13 +8,7 @@ Ext.define('Course.view.course.MyCourseTab', {
 
     items: [
         {
-            xtype: 'panel'
-        },
-//        {
-//            xtype: 'grid'
-//        },
-//        {
-//            xtype: 'grid'
-//        }
+            xtype: 'mycoursegrid'
+        }
     ]
 });

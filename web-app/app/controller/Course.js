@@ -107,7 +107,7 @@ Ext.define('Course.controller.Course', {
         }
 
         var enrollment = Ext.create('Course.model.Enrollment');
-        enrollment.set('number', course.get('number'));
+        enrollment.set('identifier', course.get('identifier'));
         enrollment.set('userName', userName);
 
         enrollment.save({

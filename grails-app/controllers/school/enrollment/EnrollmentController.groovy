@@ -13,10 +13,10 @@ class EnrollmentController {
 
     def save() {
         def student = Student.findByUserName(userId)
-        def course = Course.findByNumber(params.number)
+        def course = Course.findByIdentifier(params.identifier)
         student.addToEnrolled(course)
         student.save()
-        render( [success:true, enrollments: [number:course.number, userName:userId]] as JSON )
+        render( [success:true, enrollments: [number:course.identifier, userName:userId]] as JSON )
     }
 
     def delete() {

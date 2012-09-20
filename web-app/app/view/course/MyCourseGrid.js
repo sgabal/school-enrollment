@@ -1,13 +1,13 @@
-Ext.define('Course.view.course.CourseGrid', {
+Ext.define('Course.view.course.MyCourseGrid', {
     extend: 'Ext.grid.Panel',
-    alias: 'widget.coursegrid',
-    id: 'coursegrid',
+    alias: 'widget.mycoursegrid',
+    id: 'mycoursegrid',
 
-    title: 'Courses',
-    store : 'Course',
+    title: 'My Courses',
+    store : 'MyCourse',
 
     columnLines: true,
-    height: 290,
+    height: 360,
     autoScroll: true,
 
     columns: [
@@ -70,32 +70,15 @@ Ext.define('Course.view.course.CourseGrid', {
             text: 'Instructor',
             dataIndex: 'instructor',
             flex : 1
-        },
-        {
-            xtype: 'gridcolumn',
-            text: 'Status',
-            dataIndex: 'status',
-            flex : 1
-        },
-        {
-            xtype: 'gridcolumn',
-            text: 'Size',
-            dataIndex: 'seats',
-            flex : 0.5
-        },
-        {
-            xtype: 'gridcolumn',
-            text: 'Max',
-            dataIndex: 'maxSize',
-            flex : 0.5
         }
+
     ],
 
     dockedItems: [
         {
             xtype: 'pagingtoolbar',
-            id: 'coursepagingtoolbar',
-            store: 'Course',
+            id: 'mycoursepagingtoolbar',
+            store: 'MyCourse',
             autoDestroy : true,
             dock: 'bottom',
             displayInfo: true
@@ -104,7 +87,7 @@ Ext.define('Course.view.course.CourseGrid', {
 
     initComponent: function() {
         this.callParent(arguments);
-        this.down('#coursepagingtoolbar').down('#refresh').hide();
+        this.down('#mycoursepagingtoolbar').down('#refresh').hide();
     }
 
 });

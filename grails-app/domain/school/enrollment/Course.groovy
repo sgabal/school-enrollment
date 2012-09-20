@@ -8,7 +8,7 @@ class Course {
     String term
     String department
     String subject
-    String number
+    String identifier
     String name
     String startTime
     String endTime
@@ -18,7 +18,7 @@ class Course {
     String location
     String instructor
     String status
-    Integer size
+    Integer seats
     Integer maxSize
 
     Date    dateCreated
@@ -33,7 +33,7 @@ class Course {
         term(nullable:true)
         department(nullable:true)
         subject(nullable:false)
-        number(nullable:false, unique:true)
+        identifier(nullable:false, unique:true)
         name(nullable:true)
         startTime(nullable:true)
         endTime(nullable:true)
@@ -43,7 +43,7 @@ class Course {
         location(nullable:true)
         instructor(nullable:true)
         status(nullable:true)
-        size(nullable:true, validator: { size, course -> size <= course.maxSize })
+        seats(nullable:true, validator: { seats, course -> seats <= course.maxSize })
         maxSize(nullable:true)
         students(nullable: true)
 
