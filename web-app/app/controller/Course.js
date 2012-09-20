@@ -101,15 +101,8 @@ Ext.define('Course.controller.Course', {
     },
 
     enroll: function(course) {
-        var userName = Ext.util.Cookies.get('userName');
-        if (!userName) {
-            this.getStatusBar().setError('You must setup a student profile before enrolling.')
-            return
-        }
-
         var enrollment = Ext.create('Course.model.Enrollment');
-        enrollment.set('identifier', course.get('identifier'));
-        enrollment.set('userName', userName);
+        enrollment.set('courseNumber', course.get('identifier'));
 
         enrollment.save({
             scope: this,

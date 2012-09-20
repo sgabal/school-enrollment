@@ -3,8 +3,7 @@ Ext.define('Course.model.Enrollment', {
 
     fields: [
         {name: 'id', type: 'int', useNull:true},
-        {name: 'identifier', type:'string'},
-        {name: 'userName', type:'string'}
+        {name: 'courseNumber', type:'string'}
     ],
 
     validations: [

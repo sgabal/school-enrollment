@@ -16,10 +16,10 @@ class EnrollmentController {
     def save = { EnrollmentRequest request ->
         def student = Student.findByUserName(userId)
         if (!student) {
-            request.errors.rejectValue('userName', 'student.profile.required')
+            request.errors.reject('student.profile.required')
             throw new ValidationException("Student profile required", request.errors)
         }
-        def course = Course.findByIdentifier(params.identifier)
+        def course = Course.findByIdentifier(request.courseNumber)
         student.addToEnrolled(course)
         student.save()
         render( [success:true, enrollments: [number:course.identifier, userName:userId]] as JSON )
@@ -40,15 +40,13 @@ class EnrollmentController {
 }
 
 class EnrollmentRequest {
-    String identifier
-    String userName
+    String courseNumber
 
-    static constraints = {
-        identifier(blank: false)
-        userName(blank: false)
-    }
+//    static constraints = {
+//        courseNumber(blank: false)
+//    }
 
     String toString() {
-        "${identifier} ${userName}"
+        "${courseNumber}"
     }
 }
