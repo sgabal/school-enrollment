@@ -51,6 +51,11 @@ Ext.define('Course.controller.Course', {
            return
        }
 
+        this.loadCourses();
+
+    },
+
+    loadCourses: function() {
         this.getCourseStore().load({
             scope: this,
             params :{
@@ -110,6 +115,7 @@ Ext.define('Course.controller.Course', {
                 this.getStatusBar().setText('Enrollment was successful')
                 this.application.fireEvent('course.enrolled');
                 this.getMyCourseTab().show();
+                this.loadCourses();
             },
             failure: function(record, operation) {
                 this.getStatusBar().setError('Enrollment resulted in errors: ' + operation.getAllErrors())

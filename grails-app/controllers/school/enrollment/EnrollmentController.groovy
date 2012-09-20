@@ -20,9 +20,10 @@ class EnrollmentController {
             throw new ValidationException("Student profile required", request.errors)
         }
         def course = Course.findByIdentifier(request.courseNumber)
+        course.seats = course.seats + 1
         student.addToEnrolled(course)
         student.save()
-        render( [success:true, enrollments: [number:course.identifier, userName:userId]] as JSON )
+        render( [success:true, enrollments: [number:course.identifier]] as JSON )
     }
 
     def delete = {
