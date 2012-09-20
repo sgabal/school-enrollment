@@ -25,35 +25,35 @@ class BootStrap {
         def algebra1 = new Course(
                 term: 'Fall 2012', department: 'MATH', identifier: '5001', name: 'Algebra I',
                 startTime: '09:00 A.M', endTime: '10:00 A.M',  days: 'T,TH', credits: 4,
-                prerequisite: 'NONE', location: 'TCEASTBANK ', instructor: 'Roberts, Bob',
+                prerequisite: null, location: 'TCEASTBANK ', instructor: 'Roberts, Bob',
                 status: 'OPEN', seats: 10, maxSize: 15, subject:'Mathematics'
         ).save(flush: true)
 
         def algebra2 = new Course(
                 term: 'Fall 2012', department: 'MATH', identifier: '5002', name: 'Algebra II',
                 startTime: '09:00 A.M', endTime: '10:00 A.M',  days: 'M,W', credits: 4,
-                prerequisite: 'MATH 5001', location: 'TCEASTBANK ', instructor: 'Roberts, Bob',
+                prerequisite: algebra1, location: 'TCEASTBANK ', instructor: 'Roberts, Bob',
                 status: 'OPEN', seats: 15, maxSize: 15, subject:'Mathematics'
         ).save(flush: true)
 
         def geometry = new Course(
                 term: 'Fall 2012', department: 'MATH', identifier: '5010', name: 'Geometry',
                 startTime: '02:00 P.M', endTime: '03:00 P.M',  days: 'M,W', credits: 4,
-                prerequisite: 'MATH 5002', location: 'TCEASTBANK ', instructor: 'Hobster, Jennifer',
+                prerequisite: algebra2, location: 'TCEASTBANK ', instructor: 'Hobster, Jennifer',
                 status: 'OPEN', seats: 10, maxSize: 25, subject:'Mathematics'
         ).save(flush: true)
 
         def calculus1 = new Course(
                 term: 'Fall 2012', department: 'MATH', identifier: '5020', name: 'Calculus I',
                 startTime: '11:00 A.M', endTime: '12:00 P.M',  days: 'M,W,F', credits: 4,
-                prerequisite: 'MATH 5010', location: 'TCEASTBANK ', instructor: 'Tribeca, Tim',
+                prerequisite: geometry, location: 'TCEASTBANK ', instructor: 'Tribeca, Tim',
                 status: 'OPEN', seats: 5, maxSize: 15, subject:'Mathematics'
         ).save(flush: true)
 
         def calculus2 = new Course(
                 term: 'Fall 2012', department: 'MATH', identifier: '5021', name: 'Calculus II',
                 startTime: '03:00 P.M', endTime: '04:00 P.M',  days: 'M,W,F', credits: 4,
-                prerequisite: 'MATH 5020', location: 'TCEASTBANK ', instructor: 'Tribeca, Tim',
+                prerequisite: calculus1, location: 'TCEASTBANK ', instructor: 'Tribeca, Tim',
                 status: 'OPEN', seats: 10, maxSize: 30, subject:'Mathematics'
         ).save(flush: true)
 

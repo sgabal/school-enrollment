@@ -11,8 +11,10 @@ class MyCourseController {
         def results = []
 
         if (student) {
-            results = student.enrolled.each { course ->
-                persistentProperties(domain:course)
+            results = student.enrolled.collect { course ->
+                def result = persistentProperties(domain:course)
+                result.prerequisite = course.prerequisite?.description
+                return result
             }
         }
 

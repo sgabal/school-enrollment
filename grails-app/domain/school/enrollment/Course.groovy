@@ -14,7 +14,7 @@ class Course {
     String endTime
     String days
     Integer credits
-    String prerequisite
+    Course prerequisite
     String location
     String instructor
     String status
@@ -55,6 +55,10 @@ class Course {
 
     static mapping = {
         students joinTable: [name: "enrolled_courses", key: 'course_id']
+    }
+
+    def getDescription() {
+        "${identifier} ${name}"
     }
 
     def beforeInsert = {
