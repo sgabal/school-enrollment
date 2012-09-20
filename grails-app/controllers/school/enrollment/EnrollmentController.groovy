@@ -3,6 +3,7 @@ package school.enrollment
 
 import grails.converters.JSON
 import org.codehaus.groovy.grails.commons.metaclass.GroovyDynamicMethodsInterceptor
+import static school.enrollment.ContextHolder.*
 
 class EnrollmentController {
 
@@ -11,7 +12,11 @@ class EnrollmentController {
     }
 
     def save() {
-        render( [success:true] as JSON )
+        def student = Student.findByUserName(userId)
+        def course = Course.findByNumber(params.number)
+        student.addToEnrolled(course)
+        student.save()
+        render( [success:true, enrollments: [number:course.number, userName:userId]] as JSON )
     }
 
     def delete() {

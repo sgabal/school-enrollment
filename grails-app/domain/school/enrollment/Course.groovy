@@ -32,8 +32,8 @@ class Course {
     static constraints = {
         term(nullable:true)
         department(nullable:true)
-        subject(nullable:true)
-        number(nullable:true, unique:true)
+        subject(nullable:false)
+        number(nullable:false, unique:true)
         name(nullable:true)
         startTime(nullable:true)
         endTime(nullable:true)

@@ -110,15 +110,15 @@ Ext.define('Course.controller.Course', {
         enrollment.set('number', course.get('number'));
         enrollment.set('userName', userName);
 
-//        enrollment.save({
-//            scope: this,
-//            success: function(enrollment) {
-//                this.getStatusBar().setText('Enrollment was successful')
-//            },
-//            failure: function(record, operation) {
-//                this.getStatusBar().setError('Enrollment resulted in errors: ' + operation.getAllErrors())
-//            }
-//        });
+        enrollment.save({
+            scope: this,
+            success: function(enrollment) {
+                this.getStatusBar().setText('Enrollment was successful')
+            },
+            failure: function(record, operation) {
+                this.getStatusBar().setError('Enrollment resulted in errors: ' + operation.getAllErrors())
+            }
+        });
 
     }
 

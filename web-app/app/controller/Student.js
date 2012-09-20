@@ -41,7 +41,6 @@ Ext.define('Profile.controller.Student', {
                 studentForm.isValid()
 
                 Ext.util.Cookies.set('userName', student.get('userName'));
-
             },
             failure: function(record, operation) {
                 var studentForm = this.getStudentPanel().getForm();
@@ -67,7 +66,8 @@ Ext.define('Profile.controller.Student', {
         student.save ({
             scope: this,
             success: function(student) {
-                this.getStatusBar().setText('Save was successful')
+                this.getStatusBar().setText('Save was successful');
+                Ext.util.Cookies.set('userName', student.get('userName'));
             },
             failure: function(record, operation) {
                 this.getStatusBar().setError('Save resulted in errors: ' + operation.getAllErrors())
