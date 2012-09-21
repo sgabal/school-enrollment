@@ -8,6 +8,8 @@ import grails.validation.ValidationException
 
 class EnrollmentController {
 
+    def enrollmentService
+
     def get =  {
         log.debug "action[get]::${params}"
         render( [success:true, enrollments:[]] as JSON )
@@ -19,11 +21,8 @@ class EnrollmentController {
             request.errors.reject('student.profile.required')
             throw new ValidationException("Student profile required", request.errors)
         }
-        def course = Course.findByIdentifier(request.courseNumber)
-        course.seats = course.seats + 1
-        student.addToEnrolled(course)
-        student.save()
-        render( [success:true, enrollments: [number:course.identifier]] as JSON )
+        enrollmentService.enroll(request.courseNumber)
+        render( [success:true, enrollments: [number:request.courseNumber]] as JSON )
     }
 
     def delete = {

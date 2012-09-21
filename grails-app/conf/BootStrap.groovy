@@ -33,7 +33,7 @@ class BootStrap {
                 term: 'Fall 2012', department: 'MATH', identifier: '5002', name: 'Algebra II',
                 startTime: '09:00 A.M', endTime: '10:00 A.M',  days: 'M,W', credits: 4,
                 prerequisite: algebra1, location: 'TCEASTBANK ', instructor: 'Roberts, Bob',
-                status: 'OPEN', seats: 15, maxSize: 15, subject:'Mathematics'
+                status: 'OPEN', seats: 5, maxSize: 15, subject:'Mathematics'
         ).save(flush: true)
 
         def geometry = new Course(
@@ -57,7 +57,28 @@ class BootStrap {
                 status: 'OPEN', seats: 10, maxSize: 30, subject:'Mathematics'
         ).save(flush: true)
 
-        assert Course.count() == 5
+        def statistics = new Course(
+                term: 'Fall 2012', department: 'MATH', identifier: '5050', name: 'Statistics I',
+                startTime: '09:00 A.M', endTime: '10:00 A.M',  days: 'M,W,F', credits: 5,
+                prerequisite: null, location: 'TCWESTBANK ', instructor: 'Should, Josh',
+                status: 'OPEN', seats: 10, maxSize: 15, subject:'Mathematics'
+        ).save(flush: true)
+
+        def digital = new Course(
+                term: 'Fall 2012', department: 'CPRE', identifier: '9000', name: 'Intro to Digital Techniques',
+                startTime: '011:00 A.M', endTime: '12:00 P.M',  days: 'M,W,F', credits: 5,
+                prerequisite: null, location: 'TCWESTBANK ', instructor: 'Arnold, Tom',
+                status: 'OPEN', seats: 10, maxSize: 15, subject:'Computer Engineering'
+        ).save(flush: true)
+
+        def compArch = new Course(
+                term: 'Fall 2012', department: 'CPRE', identifier: '9010', name: 'Computer Architecture',
+                startTime: '010:00 A.M', endTime: '12:00 P.M',  days: 'T,TH', credits: 5,
+                prerequisite: null, location: 'TCWESTBANK ', instructor: 'Arnold, Tom',
+                status: 'OPEN', seats: 15, maxSize: 15, subject:'Computer Engineering'
+        ).save(flush: true)
+
+        assert Course.count() == 8
 
     }
     def destroy = {
