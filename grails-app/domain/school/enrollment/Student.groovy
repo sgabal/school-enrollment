@@ -21,13 +21,13 @@ class Student {
     static hasMany = [completed:Course, enrolled:Course]
 
     static constraints = {
-        birthDate(nullable:true, blank:true)
-        email(nullable:true, blank:true)
-        firstName(nullable:true, blank:true)
-        gender(nullable:true, blank:true)
-        grade(nullable:true, blank:true)
+        birthDate(nullable:true)
+        email(nullable:true)
+        firstName(nullable:false, blank:false)
+        gender(nullable:true)
+        grade(nullable:true)
         lastName(nullable:false, blank:false)
-        middleName(nullable:true, blank:true)
+        middleName(nullable:true)
         userName(nullable: true)
         completed(nullable: true)
         enrolled(nullable: true)
