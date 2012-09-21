@@ -138,10 +138,9 @@ grails.plugins.springsecurity.interceptUrlMap = [
         '/images/**': ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/login/**':    ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/logout/**':   ['IS_AUTHENTICATED_ANONYMOUSLY'],
-        '/j_spring_security_check': ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/admin/**':    ["hasAnyRole('ROLE_ADMIN')"],
-        '/**':          ["hasAnyRole('ROLE_ADMIN', 'ROLE_USER')"],
-
+        '/j_spring_security_check': ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/**':          ["hasAnyRole('ROLE_ADMIN', 'ROLE_USER')"]
 ]
 
 // This is where your app will look for externalized configuration.

@@ -84,25 +84,25 @@
     <a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
     <div class="title_header_medium">Home</div>
     <div class="box_container">
-        <sec:access url="profile">
+        <sec:access url="/profile">
             <g:link class="box" url="profile">
                 <r:img dir="images" file="student.png"/><br/>
                 Profile
             </g:link>
         </sec:access>
-        <sec:access url="class">
+        <sec:access url="/course">
             <g:link class="box" url="course">
                 <r:img dir="images" file="course.png"/><br/>
                 Courses
             </g:link>
         </sec:access>
-        <sec:access url="calendar">
+        <sec:access url="/calendar">
             <g:link class="box" url="calendar">
                 <r:img dir="images" file="calendar.png"/><br/>
                 Calendar
             </g:link>
         </sec:access>
-        <sec:access url="admin">
+        <sec:access url="/admin">
             <g:link class="box" url="admin">
                 <r:img dir="images" file="admin.png"/><br/>
                 Admin
