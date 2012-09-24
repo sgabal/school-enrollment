@@ -33,7 +33,7 @@ class ErrorsController {
         } else if (grailsApplication.config.showInternalErrors && request.exception) {
             results.errors = [[message:request.exception.message]]
         } else {
-            def message = messageSource.getMessage('fow.internalError', [ContextHolder.getSessionId()].toArray(), Locale.getDefault())
+            def message = messageSource.getMessage('school.enrollment.internal.error', [ContextHolder.getSessionId()].toArray(), Locale.getDefault())
             results.errors = [[message:message]]
         }
 

@@ -23,74 +23,69 @@ class ErrorsControllerIntegrationSpec extends IntegrationSpec {
         controller = new ErrorsController()
     }
 
-//    def "Validation Exception with field errors"() {
-//        setup:
-//        def student = new Student()
-//
-//        student.errors.rejectValue('grade', 'priceProgram.notValidForVisualMerch', [student.visualMerchId] as String[], "")
-//
-//        controller.request.exception = new RuntimeException(new ValidationException("", student.errors))
-//        when:
-//        controller.handle()
-//        then:
-//        controller.response.status == HttpStatus.OK.value
-//
-//        def response = JSON.parse(controller.response.contentAsString)
-//        response.success == false
-//        response.errors.size() == 1
-//        response.errors[0].field =='priceProgramId'
-//        response.errors[0].message =='Price Program is not valid for Y2CXM4'
-//    }
-//
-//    def "Validation Exception with object errors"() {
-//        setup:
-//        def request = new VisualMerchRequest()
-//        request.visualMerchId = 'Y2CXM4'
-//        request.priceProgramId = 'XPPCLDX121A001'
-//        request.sellingMethod = 'PrePay'
-//
-//        request.errors.reject('priceProgram.notFound')
-//
-//        controller.request.exception = new RuntimeException(new ValidationException("", request.errors))
-//        when:
-//        controller.handle()
-//        then:
-//        controller.response.status == HttpStatus.OK.value
-//
-//        def response = JSON.parse(controller.response.contentAsString)
-//        response.success == false
-//        response.errors.size() == 1
-//        response.errors[0].object =='com.lifetouch.fow.VisualMerchRequest'
-//        response.errors[0].message =='Price Program not found'
-//    }
-//
-//    def "Unexpected Exception with showInternalErrors = true"() {
-//        setup:
-//        grailsApplication.config.showInternalErrors = true
-//
-//        controller.request.exception = new RuntimeException(new HibernateException("transient collection error"))
-//        when:
-//        controller.handle()
-//        then:
-//        def response = JSON.parse(controller.response.contentAsString)
-//        response.success == false
-//        response.errors.size() == 1
-//        response.errors[0].message == 'org.hibernate.HibernateException: transient collection error'
-//    }
-//
-//    def "Unexpected Exception with showInternalErrors = false"() {
-//        setup:
-//        grailsApplication.config.showInternalErrors = false
-//
-//        controller.request.exception = new RuntimeException(new HibernateException("transient collection error"))
-//        when:
-//        controller.handle()
-//        then:
-//        def response = JSON.parse(controller.response.contentAsString)
-//        response.success == false
-//        response.errors.size() == 1
-//        response.errors[0].message == "Internal Error [Session Id='UNITTEST']"
-//    }
+    def "Validation Exception with field errors"() {
+        setup:
+            def student = new Student()
+            student.validate()
+
+            controller.request.exception = new RuntimeException(new ValidationException("", student.errors))
+        when:
+            controller.handle()
+        then:
+            controller.response.status == HttpStatus.OK.value
+
+            def response = JSON.parse(controller.response.contentAsString)
+            response.success == false
+            response.errors.size() == 2
+            response.errors[0].field =='firstName'
+            response.errors[0].message =='Property [firstName] of class [class school.enrollment.Student] cannot be null'
+    }
+
+    def "Validation Exception with object errors"() {
+        setup:
+            def request = new EnrollmentRequest()
+            request.errors.reject('student.profile.required')
+
+            controller.request.exception = new RuntimeException(new ValidationException("", request.errors))
+        when:
+            controller.handle()
+        then:
+            controller.response.status == HttpStatus.OK.value
+
+            def response = JSON.parse(controller.response.contentAsString)
+            response.success == false
+            response.errors.size() == 1
+            response.errors[0].object == 'school.enrollment.EnrollmentRequest'
+            response.errors[0].message == 'You must create a profile before enrolling in classes'
+    }
+
+    def "Unexpected Exception with showInternalErrors = true"() {
+        setup:
+            grailsApplication.config.showInternalErrors = true
+
+            controller.request.exception = new RuntimeException(new HibernateException("transient collection error"))
+        when:
+            controller.handle()
+        then:
+            def response = JSON.parse(controller.response.contentAsString)
+            response.success == false
+            response.errors.size() == 1
+            response.errors[0].message == 'org.hibernate.HibernateException: transient collection error'
+    }
+
+    def "Unexpected Exception with showInternalErrors = false"() {
+        setup:
+            ContextHolder.setSessionId("3A7C2BEFB999B1778DD45CCFD03269E3")
+            grailsApplication.config.showInternalErrors = false
+            controller.request.exception = new RuntimeException(new HibernateException("transient collection error"))
+        when:
+            controller.handle()
+        then:
+            def response = JSON.parse(controller.response.contentAsString)
+            response.success == false
+            response.errors.size() == 1
+            response.errors[0].message == "Internal Error [Session Id='3A7C2BEFB999B1778DD45CCFD03269E3']"
+    }
 
 }
 
