@@ -11,8 +11,7 @@ Ext.application({
     ],
 
     requires: [
-        'Ext.ux.statusbar.StatusBar',
-        'Ext.util.Cookies'
+        'Ext.ux.statusbar.StatusBar'
     ],
  
     launch: function() {

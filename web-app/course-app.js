@@ -14,8 +14,7 @@ Ext.application({
     requires: [
         'Course.view.course.MyCourseTab',
         'Course.view.course.CourseTab',
-        'Ext.ux.statusbar.StatusBar',
-        'Ext.util.Cookies'
+        'Ext.ux.statusbar.StatusBar'
     ],
 
     launch: function() {
