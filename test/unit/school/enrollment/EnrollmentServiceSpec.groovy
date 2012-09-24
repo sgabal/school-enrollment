@@ -16,17 +16,8 @@ class EnrollmentServiceSpec extends Specification {
 
     def "Student already enrolled"() {
         setup:
-
-            def course = Course.build()
-            course.department = 'MATH'
-            course.identifier = '5000'
-            course.save()
-
-            def student = Student.build()
-            student.userName = 'testuser'
-            student.addToEnrolled(course)
-            student.save()
-
+            def course = Course.build(department : 'MATH', identifier : '5000')
+            Student.build(userName : 'testuser', enrolled:[course])
         when:
             service.enroll('5000')
         then:
@@ -36,25 +27,9 @@ class EnrollmentServiceSpec extends Specification {
 
     def "Student missing prerequisite"() {
         setup:
-
-            def algebral1 = Course.build()
-            algebral1.department = 'MATH'
-            algebral1.identifier = '5000'
-            algebral1.save()
-
-            def algebra2 = Course.build()
-            algebra2.department = 'MATH'
-            algebra2.identifier = '5001'
-            algebra2.prerequisite = algebral1
-            algebra2.save()
-
-            def student = Student.build()
-            student.userName = 'testuser'
-            student.enrolled = []
-            student.completed = []
-
-            student.save()
-
+            def course = Course.build(department : 'MATH', identifier : '5000')
+            Course.build(department : 'MATH', identifier : '5001', prerequisite : course)
+            Student.build(userName : 'testuser', enrolled : [], completed : [])
         when:
             service.enroll('5001')
         then:
