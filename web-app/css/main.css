@@ -620,10 +620,10 @@ a.skip {
 
 .header .userInfo div {
     display: inline-block;
-    padding: 0.75em;
+    padding: 0.00em;
     width: 48%;
-    zoom: 1;
-    *display: inline;
+    /*zoom: 1;*/
+    /**display: inline;*/
 }
 
 .applicationHeader {
