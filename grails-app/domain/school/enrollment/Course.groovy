@@ -1,7 +1,6 @@
 package school.enrollment
 
-import static school.enrollment.ContextHolder.userId
-import static school.enrollment.ContextHolder.userId
+import static school.enrollment.ContextHolder.*
 
 class Course {
 

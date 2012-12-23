@@ -42,10 +42,6 @@ class EnrollmentController {
 class EnrollmentRequest {
     String courseNumber
 
-//    static constraints = {
-//        courseNumber(blank: false)
-//    }
-
     String toString() {
         "${courseNumber}"
     }
