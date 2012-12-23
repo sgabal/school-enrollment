@@ -21,7 +21,7 @@ Ext.define('Profile.model.Student', {
 
     proxy: {
         type: 'rest',
-        url: '/school-enrollment/students',
+        url: 'students',
         reader: {
             type: 'json',
             root: 'students'

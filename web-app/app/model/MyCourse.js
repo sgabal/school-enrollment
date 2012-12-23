@@ -9,7 +9,7 @@ Ext.define('Course.model.MyCourse', {
 
     proxy: {
         type: 'rest',
-        url: '/school-enrollment/mycourses',
+        url: 'mycourses',
         reader: {
             type: 'json',
             root: 'mycourses'

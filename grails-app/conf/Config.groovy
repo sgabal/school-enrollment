@@ -74,7 +74,7 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        grails.serverURL = "http://localhost:8080/school-enrollment"
+        grails.serverURL = "http://school-enrollment.cloudfoundry.com/"
     }
 }
 

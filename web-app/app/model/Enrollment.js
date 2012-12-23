@@ -11,7 +11,7 @@ Ext.define('Course.model.Enrollment', {
 
     proxy: {
         type: 'rest',
-        url: '/school-enrollment/enrollments',
+        url: 'enrollments',
         reader: {
             type: 'json',
             root: 'enrollments'
